@@ -26,8 +26,8 @@ INSTALLED_APPS = [
     # ... include the providers you want to enable:
     'allauth.socialaccount.providers.telegram',
     'allauth.socialaccount.providers.github',
-    # 'allauth.socialaccount.providers.instagram',
-    # 'allauth.socialaccount.providers.linkedin_oauth2',
+    'allauth.socialaccount.providers.instagram',
+    'allauth.socialaccount.providers.linkedin_oauth2',
     'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.facebook',
 ]
@@ -126,7 +126,6 @@ SOCIALACCOUNT_PROVIDERS = {
             'read:org',
         ],
     },
-
     'linkedin_oauth2': {
         'APP': {
             'client_id': '782io94taa5yaw',

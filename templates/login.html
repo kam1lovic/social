@@ -136,7 +136,10 @@
     <h4>{{ user.first_name }}</h4>
     <h4>{{ user.last_name }}</h4>
     <h4>{{ user.email }}</h4>
-    <a href="{% url 'logout' %}" style="color: red" target="_blank">Logout</a>
+    <form method="post" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit" style="color: red">Logout</button>
+    </form>
 {% else %}
     <div class="social">
         <div class="link facebook">
@@ -155,14 +158,14 @@
                 </div>
             </a>
         </div>
-{#        <div class="link instagram">#}
-{#            <a href="{% provider_login_url 'instagram' %}" target="_blank">#}
-{#                <div class="icon">#}
-{#                    <div class="text">Instagram</div>#}
-{#                    <i class="fa-brands fa-instagram"></i>#}
-{#                </div>#}
-{#            </a>#}
-{#        </div>#}
+        <div class="link instagram">
+            <a href="{% provider_login_url 'instagram' %}" target="_blank">
+                <div class="icon">
+                    <div class="text">Instagram</div>
+                    <i class="fa-brands fa-instagram"></i>
+                </div>
+            </a>
+        </div>
         <div class="link github">
             <a href="{% provider_login_url 'github' %}" target="_blank">
                 <div class="icon">
@@ -172,7 +175,7 @@
             </a>
         </div>
         <div class="link linkedin">
-            <a href="#" target="_blank">
+            <a href="{% provider_login_url 'linkedin_oauth2' %}" target="_blank">
                 <div class="icon">
                     <div class="text">Linkedin</div>
                     <i class="fa-brands fa-linkedin"></i>
@@ -180,7 +183,7 @@
             </a>
         </div>
         <div class="link google">
-            <a href="#" target="_blank">
+            <a href="{% provider_login_url 'google' %}" target="_blank">
                 <div class="icon">
                     <div class="text">Google</div>
                     <i class="fa-brands fa-google"></i>
